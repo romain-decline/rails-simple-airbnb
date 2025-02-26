@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="card shadow-lg rounded-3">
+    <div class="card-header bg-primary text-white text-center">
+      <h2><%= @flat.name %> 🏡</h2>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">📍 Adresse :</h5>
+      <p class="card-text"><%= @flat.address %></p>
+
+      <h5 class="card-title">📝 Description :</h5>
+      <p class="card-text"><%= @flat.description %></p>
+
+      <div class="d-flex justify-content-between mt-4">
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-people-group me-2"></i>
+          <span><strong>Nombre d’invités :</strong> <%= @flat.number_of_guests %></span>
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-euro-sign me-2"></i>
+          <span><strong>Prix par nuit :</strong> <%= @flat.price_per_night %> €</span>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <%= link_to "Modifier ✏️", edit_flat_path(@flat), class: "btn btn-warning me-2" %>
+        <%= link_to "Retour à la liste", flats_path, class: "btn btn-secondary me-2" %>
+        <%= link_to "Supprimer 🗑️", flat_path(@flat),
+                    data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr ?" },
+                    class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
